@@ -40,6 +40,7 @@ export class App extends Component {
           `${this.state.request}`,
           this.state.page
         );
+        console.log(nextPhoto);
         if (nextPhoto.length < 1) {
           toast('Nothing was found for this request', {
             duration: 6000,
