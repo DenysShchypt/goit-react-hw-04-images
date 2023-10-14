@@ -1,6 +1,12 @@
-
+import { Dna } from 'react-loader-spinner';
 export const Loader = () => {
   return (
-    <div>Loader</div>
-  )
-}
+    <Dna
+      visible={true}
+      height="80"
+      width="80"
+      ariaLabel="dna-loading"
+      wrapperClass="dna-wrapper"
+    />
+  );
+};

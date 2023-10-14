@@ -1,6 +1,9 @@
+import { LoadMore } from './Button.styled';
 
-export const Button = () => {
+export const Button = ({ nextPage }) => {
   return (
-    <div>Button</div>
-  )
-}
+    <LoadMore type="button" onClick={nextPage}>
+      Button
+    </LoadMore>
+  );
+};

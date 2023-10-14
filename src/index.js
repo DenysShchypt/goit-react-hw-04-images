@@ -4,6 +4,7 @@ import { App } from 'components/App';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'components/GlobalStyle';
 
+
 const theme = {
   colors: {
     grey: 'grey',
