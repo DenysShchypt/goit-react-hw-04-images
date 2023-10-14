@@ -8,7 +8,7 @@ padding: 8px 16px;
   margin-left:auto;
   margin-right:auto;
   display: inline-block;
-  color: #fff;
+  color: ${p=>p.theme.colors.white};
   border: 0;
   text-decoration: none;
   cursor: pointer;
