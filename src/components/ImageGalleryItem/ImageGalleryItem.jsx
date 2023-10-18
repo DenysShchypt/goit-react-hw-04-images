@@ -1,32 +1,33 @@
+import { ModalWindow } from 'components/ModalWindow/ModalWindow';
+import { ItemImage } from './ImageGalleryItem.styled';
+import { useState } from 'react';
 
-import { ModalWindow } from 'components/ModalWindow/ModalWindow'
-import React, { Component } from 'react'
-import { ItemImage } from './ImageGalleryItem.styled'
+export const ImageGalleryItem = ({ pictures, request }) => {
+  const [openModal, setOpenModal] = useState(false);
 
-export class ImageGalleryItem extends Component {
+  const isOpenModal = () => {
+    setOpenModal(true);
+  };
 
-  state={
-    openModal: false,
-      };
-    
-    isOpenModal=()=>{
-    this.setState({openModal: true,})
-    };
+  const isCloseModal = () => {
+    setOpenModal(false);
+  };
+  
+  return (
+    <div>
+      <ItemImage
+        src={pictures.webformatURL}
+        alt={request}
+        onClick={isOpenModal}
+      />
+      <ModalWindow
+        modalImg={pictures.largeImageURL}
+        modalOpen={openModal}
+        modalClose={isCloseModal}
+        request={request}
+      />
+    </div>
+  );
+};
 
-    isCloseModal=()=>{
-      this.setState({openModal: false,})
-    };
-    
-  render() {
-    const{pictures,request}=this.props
-    return (
-      <div>
-        <ItemImage src={pictures.webformatURL} alt={request} onClick={this.isOpenModal}/>
-        <ModalWindow modalImg={pictures.largeImageURL} modalOpen={this.state.openModal} modalClose={this.isCloseModal} request={request}/>
-</div>
-    )
-  }
-}
-
-export default ImageGalleryItem
-
+export default ImageGalleryItem;

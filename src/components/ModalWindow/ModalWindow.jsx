@@ -1,5 +1,4 @@
 import ReactModal from 'react-modal';
-import React, { Component } from 'react';
 import { ImageModal } from './ModalWindow.styled';
 
 const customStyles = {
@@ -19,32 +18,27 @@ const customStyles = {
 
 ReactModal.setAppElement('#root');
 
-export class ModalWindow extends Component {
-
-  handleModal=e=>{
-    if (e.target.src!==this.props.modalImg) {
-      this.props.modalClose()
+export const ModalWindow = ({ modalImg, modalOpen, modalClose, request }) => {
+  const handleModal = e => {
+    if (e.target.src !== modalImg) {
+      modalClose();
     }
+  };
 
-  }
-
-  render() {
-    const{modalImg, modalOpen, modalClose, request}=this.props
-    return (
-      <div onClick={this.handleModal} >
+  return (
+    <div onClick={handleModal}>
       <ReactModal
-      isOpen={modalOpen}
-      onRequestClose={modalClose}
-      style={customStyles}
-      contentLabel="Example Modal"
-    >
-      <ImageModal>
-        <img src={modalImg} alt={request} />
-      </ImageModal>
-    </ReactModal>
+        isOpen={modalOpen}
+        onRequestClose={modalClose}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <ImageModal>
+          <img src={modalImg} alt={request} />
+        </ImageModal>
+      </ReactModal>
     </div>
-    )
-  }
-}
+  );
+};
 
-export default ModalWindow
+export default ModalWindow;
